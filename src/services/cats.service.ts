@@ -7,7 +7,7 @@ class CatsService {
       const response = await apiPublic.get<ICat[]>('images/search');
       return response.data;
     } catch (error) {
-      throw new Error('Error fetching random cat');
+      throw new Error(`Error fetching random cat: ${error}`);
     }
   };
 }

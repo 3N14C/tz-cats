@@ -6,20 +6,29 @@ import { FC } from 'react';
 import styles from './get-random-cat.module.scss';
 import { useGetRandomCat } from './hooks';
 import { useEnableRequestState } from '@/global-states';
+import { Button } from '@/shared/components/ui';
 
 export const GetRandomCatFeature: FC = ({}) => {
   const { isEnabled } = useEnableRequestState();
-  const { randomCat, isLoadingRandomCat, isFetchingRandomCat } =
-    useGetRandomCat();
+  const {
+    randomCat,
+    isLoadingRandomCat,
+    isFetchingRandomCat,
+    invalidateQuery,
+  } = useGetRandomCat();
 
   return (
-    <div className="">
+    <div className={styles['feature-container']}>
       <CatsOptionsRequest />
-
-      <div className="">
-        {!isEnabled
-          ? 'Please enable the request'
-          : isLoadingRandomCat || isFetchingRandomCat
+      {!isEnabled ? (
+        'Please enable the request'
+      ) : (
+        <Button onClick={invalidateQuery}>
+          <p>Get random cat</p>
+        </Button>
+      )}
+      <div className={styles['random-cat-image-container']}>
+        {isLoadingRandomCat || isFetchingRandomCat
           ? 'Loading...'
           : randomCat?.map((cat) => (
               <Image

@@ -1,10 +1,14 @@
 import { useEnableRefetchState, useEnableRequestState } from '@/global-states';
 import { catsService } from '@/services';
-import { useQuery } from '@tanstack/react-query';
+import { useQuery, useQueryClient } from '@tanstack/react-query';
 
 export const useGetRandomCat = () => {
+  const queryClient = useQueryClient();
   const { isEnabled } = useEnableRequestState();
   const { isRefetchEnabled } = useEnableRefetchState();
+
+  const invalidateQuery = () =>
+    queryClient.invalidateQueries({ queryKey: ['random-cat'] });
 
   const {
     data: randomCat,
@@ -21,5 +25,6 @@ export const useGetRandomCat = () => {
     randomCat,
     isLoadingRandomCat,
     isFetchingRandomCat,
+    invalidateQuery,
   };
 };

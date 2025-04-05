@@ -6,6 +6,6 @@ interface IEnableRequestState {
 }
 
 export const useEnableRequestState = create<IEnableRequestState>((set) => ({
-  isEnabled: true,
+  isEnabled: false,
   setEnabled: (value) => set({ isEnabled: value }),
 }));

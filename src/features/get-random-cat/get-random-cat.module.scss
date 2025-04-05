@@ -1,5 +1,16 @@
-.random-cat-image {
-  width: 400px;
-  height: 400px;
-  object-fit: cover;
+.feature-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  .random-cat-image-container {
+    width: 400px;
+    height: 400px;
+
+    .random-cat-image {
+      width: 400px;
+      height: 400px;
+      object-fit: cover;
+    }
+  }
 }
