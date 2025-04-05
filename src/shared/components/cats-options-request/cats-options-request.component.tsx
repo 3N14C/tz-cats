@@ -5,9 +5,7 @@ import styles from './cats-options-request.module.scss';
 import { useEnableRefetchState, useEnableRequestState } from '@/global-states';
 import { Checkbox } from '../ui';
 
-interface IProps {}
-
-export const CatsOptionsRequest: FC<IProps> = ({}) => {
+export const CatsOptionsRequest: FC = ({}) => {
   const { isEnabled, setEnabled } = useEnableRequestState();
   const { isRefetchEnabled, setRefetchEnabled } = useEnableRefetchState();
 

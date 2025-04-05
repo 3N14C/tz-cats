@@ -21,3 +21,5 @@ export const Checkbox = forwardRef<HTMLInputElement, IProps>(
     );
   }
 );
+
+Checkbox.displayName = 'Checkbox';

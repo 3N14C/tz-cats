@@ -7,9 +7,7 @@ import styles from './get-random-cat.module.scss';
 import { useGetRandomCat } from './hooks';
 import { useEnableRequestState } from '@/global-states';
 
-interface IProps {}
-
-export const GetRandomCatFeature: FC<IProps> = ({}) => {
+export const GetRandomCatFeature: FC = ({}) => {
   const { isEnabled } = useEnableRequestState();
   const { randomCat, isLoadingRandomCat, isFetchingRandomCat } =
     useGetRandomCat();
